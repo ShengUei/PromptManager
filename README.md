@@ -1,165 +1,201 @@
-# 🚀 Prompt Manager - 跨瀏覽器插件
+# 🚀 Prompt Manager - 智能Prompt管理瀏覽器擴展
 
-一個強大的瀏覽器擴展，支持Chrome、Firefox、Edge、Safari等多種瀏覽器，幫助您管理和快速插入常用的prompt到任何網頁的輸入框中。
+一個專為AI時代打造的瀏覽器擴展，支持Chrome、Firefox、Edge等主流瀏覽器，讓您能夠高效管理和快速插入常用的prompt模板到任何網頁的輸入框中。特別適用於ChatGPT、Claude、Gemini等AI對話平台。
 
-## ✨ 功能特色
+## ✨ 核心功能
 
-### 📝 Prompt管理
-- **添加、編輯、刪除**：完整的prompt生命週期管理
-- **分類組織**：為prompt設置分類，更好地組織內容
-- **搜索過濾**：快速找到需要的prompt
-- **批量操作**：支持複製、導入、導出prompt
+### 📚 智能Prompt管理
+- **完整CRUD操作**：添加、編輯、刪除、複製prompt模板
+- **分類組織系統**：按用途分類管理（通用、翻譯、編程、學習等）
+- **即時搜索過濾**：快速找到所需的prompt模板
+- **批量數據管理**：支持JSON格式導入導出，便於備份和分享
 
-### 🎯 快速插入
-- **右鍵菜單**：在任何輸入框右鍵選擇prompt
-- **智能識別**：自動識別常見的對話框和輸入框
-- **彈窗界面**：點擊擴展圖標快速選擇prompt
+### 🎯 多種插入方式
+- **右鍵菜單插入**：在任何輸入框右鍵選擇prompt直接插入
+- **擴展彈窗**：點擊瀏覽器工具欄圖標，透過美觀界面選擇prompt
+- **智能複製**：自動複製到剪貼簿，支援手動貼上
 
-### 💾 數據管理
-- **本地存儲**：使用localStorage，支持所有瀏覽器
-- **跨瀏覽器**：支持Chrome、Firefox、Edge、Safari
-- **導入導出**：支持JSON格式的數據備份和恢復
-- **分類統計**：顯示prompt數量和分類統計
+### 💾 可靠的存儲機制
+- **雙重存儲**：Chrome擴展API + localStorage雙重保障
+- **跨瀏覽器相容**：智能檢測並使用最佳存儲方式
+- **自動備份**：本地存儲確保數據安全
+- **數據遷移**：支援不同瀏覽器間的數據遷移
 
 ## 🌐 瀏覽器支持
 
 ### ✅ 完全支持
-- **Google Chrome** (版本88+)
-- **Microsoft Edge** (版本88+)
-- **Mozilla Firefox** (版本78+)
-- **Safari** (版本14+)
-- **Opera** (版本74+)
+- **Google Chrome** (Manifest V3, 版本88+)
+- **Microsoft Edge** (Manifest V3, 版本88+)
+- **Mozilla Firefox** (Manifest V2, 版本78+)
+- **其他Chromium系瀏覽器** (Opera、Brave等)
 
-### 📦 安裝方式
+## 📦 安裝方式
 
-#### Chrome/Edge 安裝
-1. 使用 `manifest.json` (Manifest V3)
-2. 開發者模式載入
+### Chrome/Edge 安裝 (推薦)
 
-#### Firefox 安裝  
-1. 使用 `manifest-v2.json` (Manifest V2)
-2. 重命名為 `manifest.json`
-3. 臨時載入附加組件
-
-## 🚀 安裝指南
-
-### Chrome/Edge 安裝
-
-1. **下載源碼**
+1. **下載或複製專案**
    ```powershell
-   git clone [repository-url]
-   cd WebTool
+   git clone <repository-url>
+   cd PromptManager
    ```
 
-2. **打開擴展管理頁面**
-   - Chrome: `chrome://extensions/`
-   - Edge: `edge://extensions/`
+2. **開啟擴展管理頁面**
+   - Chrome: 導航至 `chrome://extensions/`
+   - Edge: 導航至 `edge://extensions/`
 
 3. **啟用開發者模式**
-   - 在擴展管理頁面右上角打開"開發者模式"開關
+   - 在擴展管理頁面右上角開啟「開發者模式」
 
 4. **載入擴展**
-   - 點擊"載入已解壓的擴展程序"
-   - 選擇項目文件夾 `WebTool`
-   - 確認安裝
+   - 點擊「載入未封裝項目」
+   - 選擇專案資料夾
+   - 確認擴展已成功載入
 
 ### Firefox 安裝
 
-1. **準備Firefox版本**
+1. **準備Firefox版本manifest**
    ```powershell
-   # 重命名manifest文件
+   # 暫時重命名檔案
    mv manifest.json manifest-v3.json
    mv manifest-v2.json manifest.json
    ```
 
-2. **打開調試頁面**
-   - 訪問 `about:debugging`
-   - 點擊"此Firefox"
+2. **開啟Firefox調試頁面**
+   - 導航至 `about:debugging`
+   - 點擊「此Firefox」
 
 3. **載入擴展**
-   - 點擊"臨時載入附加組件"
-   - 選擇 `manifest.json` 文件
-   - 確認安裝
+   - 點擊「臨時載入附加元件」
+   - 選擇 `manifest.json` 檔案
+   - 確認擴展已載入
 
-### Safari 安裝
+> **注意**：Firefox的臨時載入在瀏覽器重啟後會失效，如需持久安裝請參考Firefox開發者文件。
 
-1. **啟用開發者功能**
-   - Safari → 偏好設置 → 高級 → 在菜單欄中顯示"開發"菜單
+## 🚀 快速開始
 
-2. **載入擴展**
-   - 開發 → 允許未簽名的擴展
-   - 將項目文件夾拖到Safari中
+### 初次使用設定
 
-## 📖 使用說明
+1. **安裝完成後**，瀏覽器工具欄會出現Prompt Manager圖標
+2. **點擊圖標**開啟彈窗界面
+3. **點擊「管理Prompt」**進入設定頁面
+4. **探索預設模板**：系統已預載了5個實用的prompt模板：
+   - 摘要文章內容
+   - 翻譯成繁體中文/英文
+   - 解釋概念
+   - 程式碼審查請求
 
-### 初次設置
+### 使用方法詳解
 
-1. **點擊擴展圖標**：在Chrome工具欄點擊Prompt Manager圖標
-2. **管理Prompt**：點擊"管理Prompt"按鈕進入設置頁面
-3. **添加第一個Prompt**：
-   - 填寫標題（必填）
-   - 選擇分類（可選）
-   - 輸入prompt內容（必填）
-   - 點擊"保存Prompt"
+#### 方法1：右鍵菜單插入 ⭐推薦
+1. 在任何網頁的**文字輸入框**中右鍵
+2. 選擇「**插入Prompt**」選項
+3. 從子選單中選擇所需的prompt
+4. prompt內容**立即插入**到輸入框中
 
-### 使用方法
+#### 方法2：快捷鍵呼叫 ⚡超快速
+1. 確保輸入框已聚焦
+2. 按下 `Ctrl+Shift+P` (Windows) 或 `Cmd+Shift+P` (Mac)
+3. 在彈出的選擇器中點擊所需prompt
+4. prompt內容**自動插入**到輸入框
 
-#### 方法1：右鍵菜單
-1. 在任何網頁的輸入框中右鍵
-2. 選擇"插入Prompt" → 選擇具體的prompt
-3. prompt自動插入到輸入框中
+#### 方法3：擴展彈窗 📱便捷
+1. 點擊瀏覽器工具欄的Prompt Manager圖標
+2. 在彈窗中**搜索**或直接**點擊**prompt
+3. prompt自動**複製到剪貼簿**
+4. 手動貼上到任何位置 (Ctrl+V)
 
-#### 方法2：擴展彈窗
-1. 點擊Chrome工具欄的擴展圖標
-2. 在彈窗中搜索或直接點擊prompt
-3. **prompt自動複製到剪貼簿**，然後手動貼上到需要的位置
+## 📝 Prompt管理
 
-### 管理Prompt
+### 新增自訂Prompt
 
-1. **添加新Prompt**：
-   - 標題：為prompt起一個容易記住的名稱
-   - 分類：可以創建分類來組織prompt（如：通用、開發、寫作等）
-   - 內容：輸入完整的prompt文字
+1. **進入管理頁面**：
+   - 點擊擴展彈窗中的「管理Prompt」按鈕
+   - 或右鍵擴展圖標選擇「選項」
 
-2. **編輯Prompt**：
-   - 在prompt列表中點擊"編輯"按鈕
-   - 修改後點擊"更新Prompt"
+2. **填寫Prompt資訊**：
+   - **標題**（必填）：為prompt取一個清楚的名稱
+   - **分類**（選填）：可選擇現有分類或創建新分類
+   - **內容**（必填）：輸入完整的prompt文字
 
-3. **刪除Prompt**：
-   - 點擊"刪除"按鈕並確認
+3. **儲存**：點擊「儲存Prompt」按鈕
 
-4. **複製Prompt**：
-   - 點擊"複製"按鈕創建副本
+### 進階管理功能
 
-### 數據備份
+- **編輯Prompt**：點擊prompt項目的「編輯」按鈕
+- **複製Prompt**：點擊「複製」按鈕建立副本，方便創建變化版本
+- **刪除Prompt**：點擊「刪除」按鈕並確認
+- **搜索過濾**：使用搜索框按標題或內容快速篩選
+- **分類篩選**：下拉選單按分類篩選prompt
 
-1. **導出Prompt**：
-   - 在設置頁面底部點擊"導出Prompts"
-   - 下載JSON格式的備份文件
+### 數據備份與還原
 
-2. **導入Prompt**：
-   - 點擊"導入Prompts"
-   - 選擇之前導出的JSON文件
-   - 導入的prompt會與現有prompt合併
+#### 導出備份
+1. 在管理頁面點擊「**導出Prompts**」按鈕
+2. 下載JSON格式的完整備份檔案
+3. 建議定期備份以防數據遺失
 
-## 🎨 支持的網站
+#### 導入還原
+1. 點擊「**導入Prompts**」按鈕
+2. 選擇先前導出的JSON檔案
+3. 導入的prompts會與現有資料**合併**（不會覆蓋）
 
-這個擴展支持幾乎所有網站的輸入框，包括但不限於：
+## 🎯 適用場景與網站
 
-- **AI聊天網站**：ChatGPT、Claude、Gemini等
-- **社交媒體**：Twitter、Facebook、LinkedIn等  
-- **郵件服務**：Gmail、Outlook等
-- **論壇網站**：Reddit、Stack Overflow等
-- **寫作平台**：Medium、WordPress等
-- **開發工具**：GitHub、GitLab等
+### 🤖 AI對話平台
+- **ChatGPT** (OpenAI)
+- **Claude** (Anthropic)  
+- **Gemini** (Google)
+- **Grok** (xAI)
 
-## 💾 存儲機制
+### 💬 社交與通訊
+- **Twitter/X**、**Facebook**
+
+## 🔧 技術架構
+
+### 檔案結構
+```
+PromptManager/
+├── manifest.json              # Chrome/Edge擴展配置 (Manifest V3)
+├── manifest-v2.json           # Firefox擴展配置 (Manifest V2)
+├── background.js              # Chrome V3 Service Worker
+├── background-v2.js           # Firefox V2 背景腳本
+├── storage.js                 # 跨瀏覽器存儲管理器
+├── content.js                 # 內容腳本（頁面注入）
+├── popup.html/js              # 擴展彈窗界面
+├── options.html/js            # 設定頁面
+├── init-prompts.js            # 預設prompt模板
+├── icons/                     # 圖標資源
+│   └── icon.svg              # SVG向量圖標
+└── package.json              # 專案配置
+```
+
+### 核心技術特點
+
+- **🔄 雙manifest支援**：同時相容Manifest V2/V3標準
+- **💾 智能存儲**：Chrome Extension API + localStorage雙重保障  
+- **🌐 跨瀏覽器**：自動檢測環境並使用最適API
+- **⚡ 輕量無依賴**：純JavaScript實現，體積小巧
+- **🎨 響應式設計**：適配各種螢幕尺寸
+- **🛡️ 容錯機制**：多層次錯誤處理與優雅降級
+
+### 權限說明
+
+本擴展需要以下權限來提供完整功能：
+
+- **`storage`** - 儲存prompt數據
+- **`activeTab`** - 存取當前標籤頁以插入prompt
+- **`contextMenus`** - 建立右鍵選單選項
+- **`scripting`** - 在網頁中執行內容腳本以偵測輸入框
+- **`clipboardWrite`** - 複製prompt到剪貼簿
+- **`host_permissions`** - 在所有網站運行以偵測輸入框
+
+## 💾 存儲機制詳解
 
 ### 🔧 存儲方式
-- **主要存儲**：瀏覽器的localStorage API
-- **備用存儲**：Chrome擴展storage API（如果可用）
-- **跨平台**：所有現代瀏覽器都支持localStorage
-- **容量限制**：約5-10MB，足夠存儲大量prompt
+- **主要存儲**：Chrome Extensions Storage API（同步）
+- **備用存儲**：瀏覽器localStorage API（本地）
+- **自動檢測**：智能選擇最佳存儲方式
+- **容量支援**：最多約5-10MB（足夠數千個prompt）
 
 ### 📍 存儲位置
 - **Windows**: `%LOCALAPPDATA%\[Browser]\User Data\Default\Local Storage\`
@@ -167,89 +203,39 @@
 - **Linux**: `~/.config/[Browser]/Default/Local Storage/`
 
 ### 🔄 數據遷移
-- **自動備份**：每次導出都包含完整數據
-- **跨瀏覽器**：通過導入/導出在不同瀏覽器間遷移
-- **版本升級**：向後兼容，自動遷移舊數據
+- **自動備份**：每次導出都包含完整數據結構
+- **跨瀏覽器遷移**：透過JSON匯入匯出功能
+- **版本升級**：向後相容，自動遷移舊格式數據
 
-## 🛠️ 技術特點
+## 🛠️ 開發與偵錯
 
-- **Manifest V3/V2**：同時支持新舊標準
-- **跨瀏覽器API**：自動檢測並使用合適的API
-- **輕量級**：純JavaScript實現，無外部依賴
-- **響應式**：適配不同屏幕尺寸
-- **容錯性**：存儲失敗時優雅降級
-- **性能優化**：智能的元素檢測和事件處理
+### 本地開發環境
 
-## 📋 權限說明
+1. **複製專案**
+   ```bash
+   git clone <repository-url>
+   cd PromptManager
+   ```
 
-這個擴展請求以下權限：
+2. **載入到瀏覽器**（參考上方安裝步驟）
 
-- `storage`：存儲prompt數據並同步到雲端
-- `activeTab`：訪問當前標籤頁以插入prompt
-- `contextMenus`：創建右鍵菜單選項
-- `scripting`：在網頁中執行內容腳本
-- `host_permissions`：在所有網站運行以檢測輸入框
+3. **開發模式調試**：
+   - **背景腳本**：在 `chrome://extensions/` 點擊「Service Worker」連結
+   - **內容腳本**：在網頁按F12，查看Console輸出
+   - **彈窗界面**：右鍵擴展圖標選擇「檢查彈出式視窗」
 
-## 🛠️ 開發
+## 📄 開源授權
 
-### 項目結構
-```
-WebTool/
-├── manifest.json           # Chrome/Edge擴展配置 (V3)
-├── manifest-v2.json        # Firefox擴展配置 (V2)
-├── background.js           # Chrome V3背景腳本
-├── background-v2.js        # Firefox V2背景腳本
-├── storage.js              # 跨瀏覽器存儲管理器
-├── content.js              # 內容腳本
-├── popup.html/js           # 彈窗界面
-├── options.html/js         # 設置頁面
-├── icons/                  # 圖標文件
-└── README.md              # 說明文檔
-```
+本專案採用 **MIT License** 授權 - 詳見 [LICENSE](LICENSE) 文件。
 
-### 調試
+您可以自由：
+- ✅ **商業使用** - 在商業專案中使用
+- ✅ **修改原始碼** - 根據需求客製化功能  
+- ✅ **分發複製** - 重新分發給他人使用
+- ✅ **私人使用** - 個人專案中自由使用
 
-1. **背景腳本調試**：
-   - 在 `chrome://extensions/` 中點擊"背景頁面"
-   - 使用開發者工具調試
-
-2. **內容腳本調試**：
-   - 在任何網頁按F12打開開發者工具
-   - 在Console中可以看到內容腳本的輸出
-
-3. **彈窗調試**：
-   - 右鍵擴展圖標選擇"檢查彈出內容"
-
-## 🐛 常見問題
-
-### Q: 為什麼prompt沒有插入？
-A: 請確保：
-- 輸入框已聚焦（點擊輸入框）
-- 網站允許JavaScript執行
-- 嘗試刷新頁面後重試
-
-### Q: 如何同步到其他設備？
-A: 確保Chrome已登錄同一個Google賬戶並啟用同步功能。
-
-### Q: 可以備份prompt嗎？
-A: 可以！在設置頁面使用導出功能創建JSON備份文件。
-
-## 📝 更新日誌
-
-### v1.0.0
-- 初始版本發布
-- 基本的prompt管理功能
-- 右鍵菜單和快捷鍵支持
-- 數據導入導出功能
-
-## 🤝 貢獻
-
-歡迎提交Issue和Pull Request來改進這個項目！
-
-## 📄 許可證
-
-MIT License
+**唯一要求**：須保留原始授權聲明和版權資訊。
 
 ---
 
-**開發者提示**：這是一個完整的Chrome擴展項目，包含了所有必要的文件和功能。您可以直接載入到Chrome中使用，也可以根據需要進行定制開發。
+**🎉 感謝使用 Prompt Manager！**
