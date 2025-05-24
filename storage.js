@@ -9,13 +9,14 @@ function createStorageManager() {
     // 初始化存儲管理器
     initialize: async function() {
       console.log('StorageManager: Initializing...');
-      
-      // 獲取默認 prompts
+      // 僅依賴全域變數，不做硬編碼 fallback
       this.defaultPrompts = (typeof globalThis !== 'undefined' && globalThis.defaultPromptsFromInit) ||
                             (typeof window !== 'undefined' && window.defaultPromptsFromInit) ||
                             (typeof self !== 'undefined' && self.defaultPromptsFromInit) ||
                             [];
-      
+      if (!this.defaultPrompts || this.defaultPrompts.length === 0) {
+        console.warn('StorageManager: defaultPromptsFromInit 未正確載入，請確認 init-prompts.js 有被正確注入！');
+      }
       let prompts = await this.getPrompts();
       console.log('StorageManager: Loaded prompts:', prompts.length);
       

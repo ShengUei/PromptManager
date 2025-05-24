@@ -20,7 +20,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["storage.js", "content.js"],
+      "js": ["init-prompts.js", "storage.js", "content.js"],
       "run_at": "document_end"
     }
   ],
