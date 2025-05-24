@@ -1,0 +1,28 @@
+{
+  "name": "prompt-manager-chrome-extension",
+  "version": "1.0.0",
+  "description": "一個強大的Chrome插件，用於管理和快速插入常用的prompt",
+  "scripts": {
+    "build": "echo 'No build process needed for this extension'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'Add linting if needed'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "prompt",
+    "productivity",
+    "ai",
+    "chatgpt",
+    "automation"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "your-repository-url"
+  },
+  "bugs": {
+    "url": "your-repository-url/issues"
+  },
+  "homepage": "your-repository-url#readme"
+}

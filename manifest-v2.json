@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "Prompt Manager",
+  "version": "1.0.0",
+  "description": "管理和快速插入常用的prompt到對話框中",
+  
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "http://*/*",
+    "https://*/*"
+  ],
+  
+  "background": {
+    "scripts": ["storage.js", "background-v2.js"],
+    "persistent": false
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["storage.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Prompt Manager"
+  },
+  
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  
+  "web_accessible_resources": ["storage.js"]
+}
