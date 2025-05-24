@@ -1,6 +1,6 @@
 # 🚀 Prompt Manager - 智能Prompt管理瀏覽器擴展
 
-一個專為AI時代打造的瀏覽器擴展，支持Chrome、Firefox、Edge等主流瀏覽器，讓您能夠高效管理和快速插入常用的prompt模板到任何網頁的輸入框中。特別適用於ChatGPT、Claude、Gemini等AI對話平台。
+一個專為AI時代打造的瀏覽器擴展，支持Chrome、Edge等主流瀏覽器，讓您能夠高效管理和快速插入常用的prompt模板到任何網頁的輸入框中。特別適用於ChatGPT、Claude、Gemini等AI對話平台。
 
 ## ✨ 核心功能
 
@@ -26,16 +26,14 @@
 ### ✅ 完全支持
 - **Google Chrome** (Manifest V3, 版本88+)
 - **Microsoft Edge** (Manifest V3, 版本88+)
-- **Mozilla Firefox** (Manifest V2, 版本78+)
-- **其他Chromium系瀏覽器** (Opera、Brave等)
 
 ## 📦 安裝方式
 
-### Chrome/Edge 安裝 (推薦)
+### Chrome/Edge 安裝
 
 1. **下載或複製專案**
    ```powershell
-   git clone <repository-url>
+   git clone https://github.com/ShengUei/PromptManager.git
    cd PromptManager
    ```
 
@@ -50,26 +48,6 @@
    - 點擊「載入未封裝項目」
    - 選擇專案資料夾
    - 確認擴展已成功載入
-
-### Firefox 安裝
-
-1. **準備Firefox版本manifest**
-   ```powershell
-   # 暫時重命名檔案
-   mv manifest.json manifest-v3.json
-   mv manifest-v2.json manifest.json
-   ```
-
-2. **開啟Firefox調試頁面**
-   - 導航至 `about:debugging`
-   - 點擊「此Firefox」
-
-3. **載入擴展**
-   - 點擊「臨時載入附加元件」
-   - 選擇 `manifest.json` 檔案
-   - 確認擴展已載入
-
-> **注意**：Firefox的臨時載入在瀏覽器重啟後會失效，如需持久安裝請參考Firefox開發者文件。
 
 ## 🚀 快速開始
 
@@ -86,19 +64,13 @@
 
 ### 使用方法詳解
 
-#### 方法1：右鍵菜單插入 ⭐推薦
+#### 方法1：右鍵菜單插入
 1. 在任何網頁的**文字輸入框**中右鍵
 2. 選擇「**插入Prompt**」選項
 3. 從子選單中選擇所需的prompt
 4. prompt內容**立即插入**到輸入框中
 
-#### 方法2：快捷鍵呼叫 ⚡超快速
-1. 確保輸入框已聚焦
-2. 按下 `Ctrl+Shift+P` (Windows) 或 `Cmd+Shift+P` (Mac)
-3. 在彈出的選擇器中點擊所需prompt
-4. prompt內容**自動插入**到輸入框
-
-#### 方法3：擴展彈窗 📱便捷
+#### 方法3：擴展彈窗
 1. 點擊瀏覽器工具欄的Prompt Manager圖標
 2. 在彈窗中**搜索**或直接**點擊**prompt
 3. prompt自動**複製到剪貼簿**
@@ -206,36 +178,3 @@ PromptManager/
 - **自動備份**：每次導出都包含完整數據結構
 - **跨瀏覽器遷移**：透過JSON匯入匯出功能
 - **版本升級**：向後相容，自動遷移舊格式數據
-
-## 🛠️ 開發與偵錯
-
-### 本地開發環境
-
-1. **複製專案**
-   ```bash
-   git clone <repository-url>
-   cd PromptManager
-   ```
-
-2. **載入到瀏覽器**（參考上方安裝步驟）
-
-3. **開發模式調試**：
-   - **背景腳本**：在 `chrome://extensions/` 點擊「Service Worker」連結
-   - **內容腳本**：在網頁按F12，查看Console輸出
-   - **彈窗界面**：右鍵擴展圖標選擇「檢查彈出式視窗」
-
-## 📄 開源授權
-
-本專案採用 **MIT License** 授權 - 詳見 [LICENSE](LICENSE) 文件。
-
-您可以自由：
-- ✅ **商業使用** - 在商業專案中使用
-- ✅ **修改原始碼** - 根據需求客製化功能  
-- ✅ **分發複製** - 重新分發給他人使用
-- ✅ **私人使用** - 個人專案中自由使用
-
-**唯一要求**：須保留原始授權聲明和版權資訊。
-
----
-
-**🎉 感謝使用 Prompt Manager！**
